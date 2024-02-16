@@ -206,7 +206,7 @@ public final class AdService {
 
   }
 
-  private static void initTracing() {
+/*   private static void initTracing() {
     if (System.getenv("DISABLE_TRACING") != null) {
       logger.info("Tracing disabled.");
       return;
@@ -217,7 +217,7 @@ public final class AdService {
     // TODO(arbrown) Implement OpenTelemetry tracing
     
     logger.info("Tracing enabled - Stackdriver exporter initialized.");
-  }
+  } */
 
   /** Main launches the server from the command line. */
   public static void main(String[] args) throws IOException, InterruptedException {
