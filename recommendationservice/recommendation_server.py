@@ -20,7 +20,7 @@ import time
 import traceback
 from concurrent import futures
 
-import googlecloudprofiler
+#import googlecloudprofiler
 from google.auth.exceptions import DefaultCredentialsError
 import grpc
 
@@ -38,7 +38,7 @@ from opentelemetry.exporter.otlp.proto.grpc.trace_exporter import OTLPSpanExport
 from logger import getJSONLogger
 logger = getJSONLogger('recommendationservice-server')
 
-def initStackdriverProfiling():
+""" def initStackdriverProfiling():
   project_id = None
   try:
     project_id = os.environ["GCP_PROJECT_ID"]
@@ -61,7 +61,7 @@ def initStackdriverProfiling():
         time.sleep (1)
       else:
         logger.warning("Could not initialize Stackdriver Profiler after retrying, giving up")
-  return
+  return """
 
 class RecommendationService(demo_pb2_grpc.RecommendationServiceServicer):
     def ListRecommendations(self, request, context):
@@ -94,7 +94,7 @@ class RecommendationService(demo_pb2_grpc.RecommendationServiceServicer):
 if __name__ == "__main__":
     logger.info("initializing recommendationservice")
 
-    try:
+   """  try:
       if "DISABLE_PROFILER" in os.environ:
         raise KeyError()
       else:
@@ -122,7 +122,7 @@ if __name__ == "__main__":
     except (KeyError, DefaultCredentialsError):
         logger.info("Tracing disabled.")
     except Exception as e:
-        logger.warn(f"Exception on Cloud Trace setup: {traceback.format_exc()}, tracing disabled.") 
+        logger.warn(f"Exception on Cloud Trace setup: {traceback.format_exc()}, tracing disabled.")  """
 
     port = os.environ.get('PORT', "8080")
     catalog_addr = os.environ.get('PRODUCT_CATALOG_SERVICE_ADDR', '')
