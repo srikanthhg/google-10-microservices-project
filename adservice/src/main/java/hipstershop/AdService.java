@@ -225,7 +225,7 @@ public final class AdService {
     new Thread(
             () -> {
               initStats();
-              initTracing();
+             // initTracing();
             })
         .start();
 
