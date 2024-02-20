@@ -17,7 +17,7 @@
 'use strict';
 
 const logger = require('./logger')
-
+/*
 if(process.env.DISABLE_PROFILER) {
   logger.info("Profiler disabled.")
 }
@@ -60,7 +60,7 @@ if(process.env.ENABLE_TRACING == "1") {
 else {
   logger.info("Tracing disabled.")
 }
-
+*/
 
 const path = require('path');
 const HipsterShopServer = require('./server');
